@@ -38,6 +38,12 @@ $input-bg: white;
 
 // Custom CSS
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .content {
   @extend .container;
 }
@@ -379,7 +385,7 @@ footer {
   background: $black;
   color: $light-gray;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
