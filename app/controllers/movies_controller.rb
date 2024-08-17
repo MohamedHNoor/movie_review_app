@@ -11,8 +11,11 @@ before_action :set_movie, except: [:index, :new, :create]
   end
 
   def update
-    @movie.update(movie_params)
-    redirect_to @movie
+    if @movie.update(movie_params)
+      redirect_to @movie
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def new
@@ -21,8 +24,11 @@ before_action :set_movie, except: [:index, :new, :create]
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.save
-    redirect_to @movie
+    if @movie.save
+      redirect_to @movie
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
