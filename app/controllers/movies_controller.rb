@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 before_action :set_movie, except: [:index, :new, :create]
   def index
-    @movies = Movie.all
+    @movies = Movie.released
   end
 
   def show
@@ -15,7 +15,7 @@ before_action :set_movie, except: [:index, :new, :create]
     redirect_to @movie
   end
 
-   def new
+  def new
     @movie = Movie.new
   end
 
