@@ -7,6 +7,7 @@ before_action :set_movie, except: [:index, :new, :create]
   end
 
   def show
+    @fans = @movie.fans
   end
 
   def edit
